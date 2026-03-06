@@ -1,0 +1,246 @@
+@use "base";
+@use "animations";
+
+@mixin theme-colors($light-theme: true) {
+
+    @if $light-theme {
+        background-color: base.$color-light-background;
+        color: base.$color-dark-textcolor;
+
+    }
+
+    @else {
+        background-color: base.$color-dark-background;
+        color: base.$color-light-textcolor;
+    }
+}
+
+body {
+    @include theme-colors($light-theme: true);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: base.$font-headings;
+    }
+
+    p {
+        font-family: base.$font-paragraphs;
+    }
+}
+
+.intro {
+
+    padding-top: 2rem;
+
+    h1 {
+        font-size: base.$font-primarysize-h1;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: base.$font-primarysize-h2;
+    }
+
+    span {
+        font-style: italic;
+    }
+
+    p {
+        max-width: 50ch;
+        line-height: 1.5em;
+    }
+
+    a {
+        margin-top: 2rem;
+    }
+}
+
+
+
+@mixin searchBar($wsize, $hsize) {
+    width: $wsize;
+    height: $hsize;
+    background-color: white;
+    color: base.$color-dark-textcolor;
+    border: none;
+    border-radius: 20px;
+    padding: 0rem 1rem;
+    font-family: base.$font-paragraphs;
+}
+
+.button-primary {
+    background-color: base.$color-teal;
+    color: base.$color-light-textcolor;
+    font-family: base.$font-paragraphs;
+    border-radius: 25px;
+    max-width: fit-content;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        background-color: base.$color-teal-dark;
+    }
+}
+
+.button-secondary {
+    background-color: base.$color-coral;
+    color: base.$color-light-textcolor;
+    font-family: base.$font-paragraphs;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    max-width: fit-content;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: base.$color-coral-medium;
+    }
+
+    &:active {
+        transform: translateY(2px);
+        box-shadow: 0 0 3px grey;
+    }
+}
+
+.picture-style {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.link {
+    text-decoration: none;
+    font-family: base.$font-paragraphs;
+    color: base.$color-dark-textcolor;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+@mixin productColumn($size) {
+    max-width: $size;
+    text-align: start;
+    background-color: rgb(255, 255, 255);
+    color: base.$color-dark-textcolor;
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+.product-information {
+    @include productColumn(33%);
+
+    h2 {
+        font-size: base.$font-primarysize-h4;
+        color: base.$color-dark-background;
+    }
+
+    img {
+        width: 30px;
+    }
+
+    p {
+        margin-top: 1em;
+        max-width: 35ch;
+    }
+}
+
+#art1 {
+    border-bottom: 5px solid base.$color-teal;
+}
+
+#art2 {
+    border-bottom: 5px solid base.$color-coral-light;
+}
+
+#art3 {
+    border-bottom: 5px solid base.$color-honeycomb;
+}
+
+footer {
+    padding: 3rem;
+    background-color: base.$color-teal-light;
+    color: base.$color-dark-textcolor;
+
+    .company-slogan {
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+.map-search {
+    width: 100%;
+
+
+    #sök-textruta h1 {
+        font-size: base.$font-primarysize-h2;
+        margin-bottom: 2rem;
+    }
+
+    #sök-plats-ruta {
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-family: base.$font-paragraphs;
+        }
+
+        .sök-container {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            margin-top: 0.7rem;
+        }
+
+        input {
+            width: 20rem;
+            padding: 0.5rem;
+            border: none;
+            font-family: base.$font-paragraphs;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: base.$color-teal;
+            border: none;
+            color: white;
+            text-transform: uppercase;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: base.$color-teal-dark;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+}
+
+#map {
+    width: 800px;
+    height: 500px;
+    justify-self: end;
+}

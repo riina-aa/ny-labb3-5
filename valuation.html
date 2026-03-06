@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/scass/main.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <title>frontend-laboration3-5</title>
+
+  </head>
+
+  <body>
+    <nav>
+    <div class="logo"><img src="/public/images/storloggasvart.svg" alt=""></div>
+    <ul class="side-menu">
+      <li id="close-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></li>
+      <li><a href="index.html">Start</a></li>
+      <li class="active"><a href="valuation.html">SASS</a></li>
+      <li><a href="animation.html">Animation</a></li>
+      <li><a href="diagram.html">Diagram</a></li>
+      <li><a href="map.html">Karta</a></li>
+    </ul>
+    <ul>
+      <li class="hideOnMobile"><a href="index.html">Start</a></li>
+      <li class="active hideOnMobile"><a href="valuation.html">SASS</a></li>
+      <li class="hideOnMobile"><a href="animation.html">Animation</a></li>
+      <li class="hideOnMobile"><a href="diagram.html">Diagram</a></li>
+      <li class="hideOnMobile"><a href="map.html">Karta</a></li>
+      <li class="menu-button" id="open-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></li>
+    </ul>
+    <div class="search-container">
+      <label for="search"></label>
+      <input type="text" placeholder="Sök">
+      <img class="search-icon" src="/public/images/search-icon-dark.svg" alt="">
+    </div>
+  </nav>
+    <main>
+      <section class="collage sass">
+        <section class="intro">
+          <h2>Utvärdering av arbetet med SASS</h2>
+        </section>
+        <section class="valuation">
+          <article>
+            <h3>Vad som gått bra:</h3>
+            <p>Jag tycker att i det stora hela så har det gått jättebra. Det är smidigt och enkelt att komma igång. Kul med mixins och att kunna lagra variabler, och även att kunna laborera med färgkoder med hjälp av color.scale. </p>
+          </article>
+          <article>
+            <h3>Vad som gått mindre bra:</h3>
+            <p>Det jag tycker har varit svårast at greppa är detta med partials. Jag förstår tanken med att kunna strukturera upp allting så man inte har en en enda lång CSS fil. Men jag har inte riktigt fått grepp om vart jag ska lägga vart... Färger och variabler tycker jag är jättebra att kunna lagra i en fil. Med sedan när man ska skriva resten av stylingen så känns det väldigt hoppigt att skriva vissa saker på ett ställe och andra saker på ett annat ställe. Så det har varit det klurigaste med detta. Annars tycker jag att allting annars har gått bra.</p>
+          </article>
+          <article>
+            <h3>Slutsats:</h3>
+            <p>Jag tycker arbetet har gått jättebra, och det är kul med alla inbyggda funtkioner. Men behöver nog använda det lite mer för att få till detta med partials på ett bra sätt. Jag vet inte riktigt varför det inte riktigt klickar där... 😅</p>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

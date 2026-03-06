@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/scass/main.scss">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <title>frontend-laboration3-5</title>
+
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><img src="/public/images/storloggasvart.svg" alt=""></div>
+    <ul class="side-menu">
+      <li id="close-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></li>
+      <li class="active"><a href="index.html">Start</a></li>
+      <li><a href="valuation.html">SASS</a></li>
+      <li><a href="animation.html">Animation</a></li>
+      <li><a href="diagram.html">Diagram</a></li>
+      <li><a href="map.html">Karta</a></li>
+    </ul>
+    <ul>
+      <li class="active hideOnMobile"><a href="index.html">Start</a></li>
+      <li class="hideOnMobile"><a href="valuation.html">SASS</a></li>
+      <li class="hideOnMobile"><a href="animation.html">Animation</a></li>
+      <li class="hideOnMobile"><a href="diagram.html">Diagram</a></li>
+      <li class="hideOnMobile"><a href="map.html">Karta</a></li>
+      <li class="menu-button" id="open-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></li>
+    </ul>
+    <div class="search-container">
+      <label for="search"></label>
+      <input type="text" placeholder="Sök">
+      <img class="search-icon" src="/public/images/search-icon-dark.svg" alt="">
+    </div>
+  </nav>
+  <main>
+    <section class="collage">
+      <section class="intro">
+        <h1>Built for <span>bright</span><br> days</h1>
+        <p>Designed to stand out in every light. Our sunglasses combine sharp silhouettes with effortless attitude —
+          iconic
+          from every angle, wherever the day takes you.</p>
+        <a class="button-primary" href="animation.html">Shop til' you drop</a>
+      </section>
+      <section class="bilder">
+        <img id="iconic" class="picture-style" src="/public/images/sunglasses-dog-iconic.jpg" alt="">
+        <img id="angle" class="picture-style" src="/public/images/sunglasses-angle.webp" alt="">
+        <img id="bright" class="picture-style" src="/public/images/sunglasses-bright.webp" alt="">
+      </section>
+    </section>
+    <section class="content-columns">
+      <article id="art1" class="product-information">
+        <div>
+          <img src="public/images/sun-icon.svg" alt="">
+          <h2>Full UV Protection</h2>
+        </div>
+        <p>Full protection against harmful rays, so you can face the brightest days with confidence. Style that shields
+          as much as it stands out.</p>
+      </article>
+      <article id="art2" class="product-information">
+        <div>
+          <img src="public/images/leaf-icon.svg" alt="">
+          <h2>Responsible Materials</h2>
+        </div>
+        <p>Lightweight, durable frames crafted with intention. Designed to last beyond the season — and beyond fast
+          trends.</p>
+      </article>
+      <article id="art3" class="product-information">
+        <div>
+          <img src="public/images/diamond-icon.svg" alt="">
+          <h2>Timeless. Iconic. Intentional.</h2>
+        </div>
+        <p>Bold silhouettes and clean crisp lines that stay relevant year after year — iconic from every angle.</p>
+      </article>
+    </section>
+    <footer>
+      <section class="company-slogan">
+        <h2>BRIGHTLY</h2>
+      <p>Iconic from every angle</p>
+      </section>
+      <section class="links">
+        <a class="link" href="#">Contact</a>
+        <p>|</p>
+        <a class="link" href="#">Find your closest store</a>
+        <p>|</p>
+        <a class="link" href="#">Sustainablity</a>
+        <p>|</p>
+        <a class="link" href="#">Return Policy</a>
+      </section>
+    </footer>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

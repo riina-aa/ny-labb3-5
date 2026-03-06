@@ -1,0 +1,111 @@
+@use "base";
+@use "components";
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @include components.theme-colors($light-theme: false);
+    }
+
+    nav ul li a {
+        color: base.$color-light-textcolor;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    nav ul li.hideOnMobile {
+        display: none;
+    }
+
+    .search-container {
+        position: absolute;
+        top: 1.5em;
+        left: 42%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .intro {
+        padding-top: 0;
+
+        h1 {
+            font-size: base.$font-mobilesize-h1;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+        }
+
+        p {
+            max-width: 30ch;
+        }
+    }
+
+    .bilder {
+        align-self: center;
+    }
+
+    .product-information {
+        @include components.productColumn(31%);
+    }
+
+    .sass {
+        flex-direction: column;
+    }
+
+
+
+}
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 1.5em 2em;
+    }
+
+    .side-menu {
+        width: 100vh;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .collage {
+        padding: 3em 2em;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .intro {
+
+        h2 {
+            font-size: base.$font-mobilesize-h2;
+        }
+    }
+
+    .bilder {
+        width: 100%;
+    }
+
+    .content-columns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .product-information {
+        @include components.productColumn(100%);
+    }
+
+    .valuation {
+        width: 100%;
+
+        article {
+            @include components.productColumn(100%);
+        }
+    }
+
+}

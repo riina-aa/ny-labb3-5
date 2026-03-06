@@ -1,0 +1,44 @@
+
+@use "sass:color"; 
+
+//Färgschema Ljust
+$color-light-background: #F7EDE2; 
+$color-dark-textcolor: #27282a; 
+
+//Färgschema Mörkt
+$color-dark-background: #424B54; 
+$color-light-textcolor: #F7EDE2; 
+
+//Accentfärger 
+$color-coral: #F28482; 
+$color-coral-light: color.scale(#F28482, $lightness: 50%); 
+$color-coral-medium: color.scale(#F28482, $lightness: -5%);
+$color-coral-dark: color.scale(#F28482, $lightness: -50%);
+
+$color-teal: #84A59D; 
+$color-teal-light: color.scale(#84A59D, $lightness: 50%); 
+$color-teal-dark: color.scale(#84A59D, $lightness: -40%);
+
+$color-honeycomb: #F6BD60; 
+$color-honeycomb-light: color.scale(#F6BD60, $lightness: 50%); 
+$color-honeycomb-dark: color.scale(#F6BD60, $lightness: -20%);
+
+//Typsnitt 
+$font-headings: "Bricolage Grotesque", sans-serif; 
+$font-paragraphs: "Montserrat", sans-serif; 
+
+//Textstorlekar 
+$font-primarysize-h1: 80px; 
+$font-primarysize-h2: 55px; 
+$font-primarysize-h3: 30px;
+$font-primarysize-h4: 20px; 
+
+$font-mobilesize-h1: 60px;
+$font-mobilesize-h2: 35px; 
+$font-mobilesize-h3: 30px;
+$font-mobilesize-h4: 20px;  
+
+$font-size-p: 16px; 
+
+
+

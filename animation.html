@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/scass/main.scss">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <title>frontend-laboration3-5</title>
+
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><img src="/public/images/storloggasvart.svg" alt=""></div>
+    <ul class="side-menu">
+      <li id="close-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+          fill="#000000">
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+        </svg></li>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="valuation.html">SASS</a></li>
+      <li class="active"><a href="animation.html">Animation</a></li>
+      <li><a href="diagram.html">Diagram</a></li>
+      <li><a href="map.html">Karta</a></li>
+    </ul>
+    <ul>
+      <li class="hideOnMobile"><a href="index.html">Start</a></li>
+      <li class="hideOnMobile"><a href="valuation.html">SASS</a></li>
+      <li class="active hideOnMobile"><a href="animation.html">Animation</a></li>
+      <li class="hideOnMobile"><a href="diagram.html">Diagram</a></li>
+      <li class="hideOnMobile"><a href="map.html">Karta</a></li>
+      <li class="menu-button" id="open-menu-li"><svg xmlns="http://www.w3.org/2000/svg" height="28px"
+          viewBox="0 -960 960 960" width="28px" fill="#000000">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg></li>
+    </ul>
+    <div class="search-container">
+      <label for="search"></label>
+      <input type="text" placeholder="Sök">
+      <img class="search-icon" src="/public/images/search-icon-dark.svg" alt="">
+    </div>
+  </nav>
+  <main>
+    <section class="collage">
+      <div class="textbox">
+        <h2>Designed to steal <br>your heart</h2>
+        <h3>. . . and last a lifetime</h3>
+        <p>Timeless design. Responsible materials.<br>Because the brightest choices are the ones you’ll love for years.
+        </p>
+        <button id="love-btn" class="button-secondary">Feel the love</button>
+        <div class="best-test">
+          <h4>Brightly - Bäst i test 2026</h3>
+            <p>Tre av våra modeller fick bäst betyg i:</p>
+            <ul>
+              <li>UV-skydd</li>
+              <li>Komfort</li>
+              <li>Hållbarhet</li>
+            </ul>
+        </div>
+
+      </div>
+      <div class="bildspel">
+        <div id="sass"><img class="picture-style" src="/public/images/dogs-sunglasses.webp" alt=""></div>
+        <div id="map"><img class="picture-style" src="/public/images/car-sunglasses.webp" alt=""></div>
+        <div id="animation"><img class="picture-style" src="/public/images/woman2-sunglasses.webp" alt=""></div>
+        <div id="färg1">
+          <div class="heart-wrapper">
+            <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#000000">
+              <path
+                d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+            </svg>
+          </div>
+        </div>
+        <div id="färg2">
+          <svg class="diagram" viewbox="0 50 70 50">
+            <rect class="bar" x="15" y="80" width="10" height="25" />
+            <rect class="bar" x="30" y="60" width="10" height="40" />
+            <rect class="bar" x="45" y="70" width="10" height="30" />
+          </svg>
+        </div>
+        <div id="färg3">
+          <p>My future is so<br><span class="bright">bright</span></p>
+          <img src="public/images/sunglasses-icon.svg" alt="">
+          <p>I need to wear my<br><span>shades</span></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <section class="company-slogan">
+        <h2>BRIGHTLY</h2>
+        <p>Iconic from every angle</p>
+      </section>
+      <section class="links">
+        <a class="link" href="#">Contact</a>
+        <p>|</p>
+        <a class="link" href="#">Find your closest store</a>
+        <p>|</p>
+        <a class="link" href="#">Sustainablity</a>
+        <p>|</p>
+        <a class="link" href="#">Return Policy</a>
+      </section>
+    </footer>
+  </main>
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>
