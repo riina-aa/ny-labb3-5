@@ -134,7 +134,7 @@ function filterData(data) {
 function displayKursData(kurs) {
 
     const stapelCanvas = document.getElementById("stapeldiagram");
-    if (!stapeldiagram) return;
+    if (!stapelCanvas) return;
 
     new Chart(stapelCanvas, {
         type: 'bar',
@@ -170,7 +170,7 @@ function displayKursData(kurs) {
 function displayProgramData(program) {
 
     const cirkelCanvas = document.getElementById("cirkeldiagram");
-    if (!cirkeldiagram) return;
+    if (!cirkelCanvas) return;
 
     new Chart(cirkelCanvas, {
         type: 'doughnut',
