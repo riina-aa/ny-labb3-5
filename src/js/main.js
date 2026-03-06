@@ -1,4 +1,4 @@
-import '/src/scss/main.scss'
+import '/src/scass/main.scss'
 import Chart from 'chart.js/auto'
 
 document.addEventListener("DOMContentLoaded", async () => {
