@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: main.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import '/src/scass/main.scss'
+import Chart from 'chart.js/auto'
+
+let antagningData = [];
+
+document.addEventListener("DOMContentLoaded", async () => {
+    init();
+})
+
+let map = L.map('map').setView([59.32938, 18.06871], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&amp;copy; &lt;a href="http://www.openstreetmap.org/copyright">OpenStreetMap&lt;/a>'
+}).addTo(map);
+
+/**
+ * Initierar webbplatsens funktionalitet när DOM:en har laddats.
+ * Startar menyer, animationer, hämtar statistikdata och aktiverar
+ * sökfunktionen för kartan.
+ * 
+ * @returns {void}
+ */
+function init() {
+    showSidebar();
+    hideSidebar();
+    startHeart();
+    startBounce();
+    getData();
+    const searchPlaceBtn = document.querySelector("#searchPlaceBtn");
+
+    if (!searchPlaceBtn) return;
+
+    searchPlaceBtn.addEventListener("click", () => {
+        fetchCordinates();
+    });
+}
+
+function showSidebar() {
+    const menuLi = document.querySelector("#open-menu-li")
+    const sidebar = document.querySelector(".side-menu")
+
+    menuLi.addEventListener("click", () => {
+        sidebar.style.display = "flex"
+    });
+}
+
+function hideSidebar() {
+    const menuLi = document.querySelector("#close-menu-li")
+    const sidebar = document.querySelector(".side-menu")
+
+    menuLi.addEventListener("click", () => {
+        sidebar.style.display = "none"
+    });
+}
+
+function startHeart() {
+    const loveBtn = document.querySelector("#love-btn");
+    const heart = document.querySelector(".heart")
+
+    if (!loveBtn || !heart) return;
+
+    loveBtn.addEventListener("click", () => {
+        heart.classList.toggle("animate");
+    })
+}
+
+function startBounce() {
+    const textbox = document.querySelector(".best-test")
+    const bars = document.querySelectorAll(".bar")
+
+    if (!textbox || bars.length === 0) return;
+
+    textbox.addEventListener("mouseenter", () => {
+        bars.forEach(bar => {
+            bar.classList.toggle("bar-animation");
+        });
+    });
+}
+
+
+/**
+ * Hämtar statistikdata om sökande från ett externt JSON-API.
+ * Den hämtade datan sparas i den globala variabeln antagningData
+ * och skickas vidare till filterData för bearbetning.
+ * 
+ * @async
+ * @returns {Promise&lt;void>}
+ */
+async function getData() {
+    const url = "https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json"
+
+    try {
+        const response = await fetch(url);
+        antagningData = await response.json();
+
+        filterData(antagningData);
+
+    } catch (error) {
+        console.error("Felmeddelande:" + error);
+    }
+}
+
+/**
+ * Filtrerar och sorterar statistikdatan.
+ * Delar upp datan i kurser och program, sorterar dem efter
+ * antal sökande och skickar de mest populära vidare till diagram.
+ * 
+ * @param {Array&lt;Object>} data - Array med statistikobjekt från API:et
+ * @returns {void}
+ */
+function filterData(data) {
+
+    let kurser = data.filter(kurs => kurs.type === "Kurs");
+    let program = data.filter(program => program.type === "Program");
+
+    kurser.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
+    program.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
+
+    let toppKurser = kurser.slice(0, 6);
+    let toppProgram = program.slice(0, 5);
+
+    displayKursData(toppKurser);
+    displayProgramData(toppProgram);
+}
+
+/**
+ * Skapar ett stapeldiagram med de mest populära kurserna
+ * baserat på antal sökande.
+ * 
+ * @param {Array&lt;Object>} kurs - Array med kursobjekt som innehåller
+ * namn och antal sökande.
+ * @returns {void}
+ */
+function displayKursData(kurs) {
+
+    const stapelCanvas = document.getElementById("stapeldiagram");
+    if (!stapelCanvas) return;
+
+    new Chart(stapelCanvas, {
+        type: 'bar',
+        data: {
+            labels: kurs.map(k => k.name),
+            datasets: [{
+                label: 'Totalt antal sökande:',
+                data: kurs.map(k => k.applicantsTotal),
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(255, 159, 64)',
+                    'rgba(255, 205, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                    'rgba(153, 102, 255)',
+                    'rgba(201, 203, 207)'
+                ]
+            }
+            ]
+        }
+    }
+    );
+};
+
+/**
+ * Skapar ett cirkeldiagram med de mest populära programmen
+ * baserat på antal sökande.
+ * 
+ * @param {Array&lt;Object>} program - Array med programobjekt som innehåller
+ * namn och antal sökande.
+ * @returns {void}
+ */
+function displayProgramData(program) {
+
+    const cirkelCanvas = document.getElementById("cirkeldiagram");
+    if (!cirkelCanvas) return;
+
+    new Chart(cirkelCanvas, {
+        type: 'doughnut',
+        data: {
+            labels: program.map(p => p.name),
+            datasets: [{
+                label: 'Totalt antal sökande:',
+                data: program.map(p => p.applicantsTotal),
+                backgroundColor: [
+                    'rgba(255, 99, 132)',
+                    'rgba(255, 159, 64)',
+                    'rgba(255, 205, 86)',
+                    'rgba(75, 192, 192)',
+                    'rgba(54, 162, 235)',
+                ]
+            }
+            ]
+        }
+    }
+    );
+};
+
+/**
+ * Hämtar koordinater för en plats baserat på användarens sökning
+ * via Open-Meteos geocoding API. När koordinaterna hämtats skickas
+ * de vidare till displayPlace för att visa platsen på kartan.
+ * 
+ * @async
+ * @returns {Promise&lt;void>}
+ */
+async function fetchCordinates() {
+
+    let url = "https://geocoding-api.open-meteo.com/v1/search?";
+    let searchPlace = document.querySelector("#search-place").value;
+
+    try {
+        const response = await fetch(url + `name=${searchPlace}&amp;count=1&amp;language=en&amp;format=json`);
+        let data = await response.json();
+
+        console.log(data);
+
+        let latitude = data.results[0].latitude
+        let longitude = data.results[0].longitude
+        let name = data.results[0].name
+
+        displayPlace(latitude, longitude, name)
+
+    } catch (error) {
+        console.error("Felmeddelande:" + error);
+    }
+}
+
+/**
+ * Uppdaterar kartans position och placerar en markör på den
+ * sökta platsen.
+ * 
+ * @param {number} latitude - Platsens latitud
+ * @param {number} longitude - Platsens longitud
+ * @param {string} name - Namnet på platsen
+ * @returns {void}
+ */
+function displayPlace(latitude, longitude, name) {
+
+    map.setView([latitude, longitude], 13);
+
+    let marker = L.marker([latitude, longitude]).addTo(map);
+    marker.bindPopup(`${name}`).openPopup();
+}
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#displayKursData">displayKursData</a></li><li><a href="global.html#displayPlace">displayPlace</a></li><li><a href="global.html#displayProgramData">displayProgramData</a></li><li><a href="global.html#fetchCordinates">fetchCordinates</a></li><li><a href="global.html#filterData">filterData</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#init">init</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Fri Mar 06 2026 11:42:58 GMT+0100 (centraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
