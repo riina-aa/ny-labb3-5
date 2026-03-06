@@ -5,7 +5,7 @@ Jag hade tidigare ett annat repo, men det blev något fel med package-lock.json 
 🔗 https://github.com/riina-aa/frontend-laboration3-5.git 🔗
 
 ### 🔗 Länk till webbplats 🔗
-https://ubiquitous-medovik-ec8fa1.netlify.app/
+https://gleaming-empanada-222752.netlify.app/
 
 ### Mina animationer
 1. Vid laddning av sidan så byter ett element bakgrundsfärg och ett ord ändras
