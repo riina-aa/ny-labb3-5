@@ -1,6 +1,8 @@
 import '/src/scass/main.scss'
 import Chart from 'chart.js/auto'
 
+let antagningData = [];
+
 document.addEventListener("DOMContentLoaded", async () => {
     init();
 })
@@ -76,9 +78,6 @@ function startBounce() {
 }
 
 
-
-let antagningData = [];
-
 /**
  * Hämtar statistikdata om sökande från ett externt JSON-API.
  * Den hämtade datan sparas i den globala variabeln antagningData
@@ -134,10 +133,10 @@ function filterData(data) {
  */
 function displayKursData(kurs) {
 
-    const canvas = document.getElementById("stapeldiagram");
-    if (!canvas) return;
+    const stapelCanvas = document.getElementById("stapeldiagram");
+    if (!stapeldiagram) return;
 
-    new Chart(canvas, {
+    new Chart(stapelCanvas, {
         type: 'bar',
         data: {
             labels: kurs.map(k => k.name),
@@ -170,10 +169,10 @@ function displayKursData(kurs) {
  */
 function displayProgramData(program) {
 
-    const canvas = document.getElementById("stapeldiagram");
-    if (!canvas) return;
+    const cirkelCanvas = document.getElementById("cirkeldiagram");
+    if (!cirkeldiagram) return;
 
-    new Chart(canvas, {
+    new Chart(cirkelCanvas, {
         type: 'doughnut',
         data: {
             labels: program.map(p => p.name),
@@ -192,8 +191,6 @@ function displayProgramData(program) {
         }
     }
     );
-
-    if (!cirkeldiagram === 0) return;
 };
 
 /**
