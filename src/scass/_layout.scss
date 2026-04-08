@@ -339,7 +339,7 @@ nav {
     grid-template-rows: auto auto;
     align-content: center;
 
-    .diagram h1 {
+    h1 {
         grid-column: 1 / -1;
         grid-row: 1;
     }
@@ -351,6 +351,16 @@ nav {
         flex-direction: row; 
         justify-content: space-between;
         padding: 8rem 4rem;
+    }
+
+    .tabell canvas#stapeldiagram {
+        width: 500px; 
+        height: auto; 
+    }
+
+    .tabell canvas#cirkeldiagram {
+        width: 400px; 
+        height: auto; 
     }
 }
 

@@ -1,7 +1,6 @@
 @use "base";
 @use "components";
 
-
 @media (prefers-color-scheme: dark) {
     body {
         @include components.theme-colors($light-theme: false);
@@ -56,9 +55,54 @@
         flex-direction: column;
     }
 
+    .collage {
+        padding: 3rem 3rem;
 
+        .diagram {
 
+            .tabeller {
+                padding: 6rem 0rem;
+                justify-content: space-around;
+            }
+
+            .tabell canvas#stapeldiagram {
+                width: 400px;
+                height: auto;
+            }
+
+            .tabell canvas#cirkeldiagram {
+                width: 300px;
+                height: auto;
+            }
+
+        }
+    }
+
+    .map-search {
+        grid-template-columns: 40% 60%;
+        grid-template-rows: auto auto auto;
+
+        #sök-textruta {
+            grid-column: 1 / -1;
+            grid-row: 1;
+        }
+
+        #sök-plats-ruta {
+            grid-column: 1;
+            grid-row: 2;
+            margin-bottom: 2rem;
+        }
+
+        #map {
+            grid-column: 1 / -1;
+            grid-row: 3;
+            width: 100%; 
+            height: 500px; 
+        }
+    }
 }
+
+
 
 @media (max-width: 600px) {
 
@@ -107,5 +151,34 @@
             @include components.productColumn(100%);
         }
     }
+
+    .diagram {
+        grid-template-columns: 1fr;
+
+        .tabeller {
+            flex-direction: column;
+        }
+
+        .tabell canvas#stapeldiagram {
+            width: 300px;
+            height: auto;
+            justify-self: center;
+        }
+
+        .tabell canvas#cirkeldiagram {
+            width: 250px;
+            height: auto;
+            justify-self: center;
+        }
+    }
+
+    .map-search {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        
+    }
+
+
+
 
 }

@@ -1,5 +1,7 @@
 import '/src/scass/main.scss'
 import Chart from 'chart.js/auto'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
 let antagningData = [];
 
@@ -7,11 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     init();
 })
 
-let map = L.map('map').setView([59.32938, 18.06871], 13);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+
 
 /**
  * Initierar webbplatsens funktionalitet när DOM:en har laddats.
@@ -33,6 +31,12 @@ function init() {
     searchPlaceBtn.addEventListener("click", () => {
         fetchCordinates();
     });
+
+    let map = L.map('map').setView([59.32938, 18.06871], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
 }
 
 function showSidebar() {
